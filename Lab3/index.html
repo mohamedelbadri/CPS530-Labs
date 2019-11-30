@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Sameer Mehta">
+    <title>Authentication Required</title>
+    <style>
+      body{
+        margin:1em auto;
+        max-width:40em;
+        padding:0 .62em;
+        font:1.2em/1.62em sans-serif;
+      }
+      h1,h2,h3 {
+        line-height:1.2em;
+      }
+      @media print{
+        body{
+          max-width:none
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+  <h1>Authentication Required</h1>
+
+
+
+  <script>
+    function protect() {
+    var testV = 1;
+    var pass1 = prompt('Please Enter Your Password',' ');
+    while (testV < 3) {
+    if (!pass1)
+    history.go(-1);
+    if (pass1.toLowerCase() == "password") {
+    alert('Correct');
+    window.open('main.html');
+    break;
+    }
+    testV+=1;
+    var pass1 =
+    prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+    }
+    if (pass1.toLowerCase()!="password" & testV ==3)
+    history.go(-1);
+    return " ";
+    }
+  </script>
+
+  <form>
+    <input type="button" value="Enter Protected Area" onClick="protect()">
+  </form>
+
+
+  </body>
+
+</html>

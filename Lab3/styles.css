@@ -1,0 +1,19 @@
+body {
+    background-image: url(photo-1513366208864-87536b8bd7b4.jpg);
+    background-size: cover;
+  
+  }
+  
+  .col-sm-2 {
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: black;
+    margin: 50px;
+  }
+  
+  .col-sm-8 {
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: black;
+    margin: 50px;
+  }
