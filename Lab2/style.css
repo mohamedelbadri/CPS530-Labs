@@ -1,0 +1,57 @@
+
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.navbar-nav li a:hover {
+    color: #fc0303 !important;
+}
+.navbar-header a:hover {
+    color: #fc0303 !important
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.bg-1 {
+    background-color: #fc0303; /* Red , Liverpool and Egypt main colors */
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 12%;
+    color: #ffffff;
+}
+
+.bg-2 {
+    background-color: #ffffff; 
+    color: #474e5d;
+}
+.bg-3 {
+    background-color: #DCDCDC; /* White */
+    color: #555555;
+}
+
+.bg-4 {
+    background-color: #ffffff; /* Grey */
+    color: #555555;
+}
+
+
+h3.name
+{
+  font-weight: 300;
+}
+
+
+h3.dob
+{
+  font-weight: 300;
+  font-style: italic;
+}
