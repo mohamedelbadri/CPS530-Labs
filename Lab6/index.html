@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CPS 530 Web Systems Development">
+  <meta name="author" content="Mo Elbadry">
+
+  <!-- Skeleton CSS /!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- Custom CSS to make FadeIn contents work -->
+  <style type="text/css">
+   #form-container
+  {
+	  display:none;
+  }
+ </style>
+
+
+  <title>Lab 6</title>
+</head>
+<body>
+
+  <div class="container">
+
+  <h2>Lab 6 Form</h2>
+  <h3>By Mohamed Elbadry</h3>
+  <h4>500860249</h4>
+
+  <div class="Description">
+    <p>Please wait for the form to be faded in using jquery</p>
+  </div>
+
+  <div class="form-container" id="form-container">
+    <form action="http://www2.scs.ryerson.ca/~melbadry/cgi-bin/ruby.rb" method="get" id="form" onsubmit="return checkForm()">
+      <div class="row">
+        <div class="six columns">
+          <label for="Name">First Name</label>
+          <input class="u-full-width" type="text" id="name" placeholder="John" required onchange="isName(document.getElementById('name'))">
+        </div>
+        <div class="six columns">
+          <label for="Phone">Phone Number</label>
+          <input class="u-full-width" type="tel" id="number" placeholder="416-555-5555" required onchange="checkNumber(document.getElementById('number'))">
+        </div>
+        </div>
+        <div class="address">
+          <label for="Address">Address</label>
+          <textarea name="address" class="u-full-width" id="address" rows="8" cols="40" placeholder="350 Victoria Street..." required=></textarea>
+        </div>
+        <div id="submit">
+          <input class="button-primary u-full-width" id="submit-button" type="submit" value="Submit">
+        </div>
+
+    </form>
+  </div>
+
+  </div>
+
+  <script>
+    //Fades in form
+    $(document).ready(function(slow)
+    {
+      $('#form-container').fadeIn();
+    });
+    function isName(elem)
+    {
+      var msg = "Names are strictly alphabetical!";
+      var regEx = /^[a-zA-Z]+$/i;
+      if(elem.value.match(regEx))
+      {
+        return true;
+      }
+      else {
+        alert(msg);
+        elem.focus();
+        return false;
+      }
+    }
+    function checkNumber(elem)
+    {
+      var msg = "Invalid Phone Number, Phone Number Format is XXX-XXX-XXXX"
+      var phoneno = /^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/;
+     if(elem.value.match(phoneno))
+     {
+     return true;
+     }
+     else
+     {
+       alert(msg);
+       return false;
+     }
+    }
+    function checkForm()
+    {
+      return checkNumber(document.getElementById('number')) && isName(document.getElementById('name'));
+    }
+  </script>
+
+
+</body>
+</html>
