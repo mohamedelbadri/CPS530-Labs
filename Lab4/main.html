@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CPS 530 Web Systems Development">
+  <meta name="keywords" content="Labs 4">
+  <meta name="author" content="Mo Elbadry">
+
+  <!-- Google Roboto Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i" rel="stylesheet">
+
+  <!-- My custom css -->
+  <link href="formstyles.css" rel="stylesheet">
+
+  <title>Form</title>
+</head>
+
+<body>
+<div class="content">
+  <h1>Welcome to the HTML form</h1>
+  <h3>Mohamed Elbadry - 500860249</h3>
+  <form action="http://www2.scs.ryerson.ca/~melbadry/cgi-bin/form1.cgi" method="POST" id="form">
+   
+  What is your Name?
+  <input type="text" name="name" id="name"><br>
+  What is your age?
+  <input type="text" name="age" id="age"><br>
+  Choose your favourite color:
+  Green: <input type="radio" name="colour" id="green" value="Green">
+  Yellow: <input type="radio" name="colour" id="yellow" value="Yellow">
+  <br>
+  Choose your favourite foods:
+  <br>
+  <select name="foods" id="foods" multiple="multiple">
+    <option value="Apples">Apples</option>
+    <option value="Oranges">Oranges</option>
+    <option value="Grapes">Grapes</option>
+    <option value="Grapes">Pinapple</option>
+  </select>
+  <br>
+  <input type="submit">
+  </form>
+</div>
+
+</body>
