@@ -1,0 +1,29 @@
+ 
+		body{
+                        -webkit-background-size: cover;
+                        -moz-background-size:cover;
+                        -o-background-size:cover;
+                        background-size:cover;
+                }
+		#pic{
+                        height:250px;
+                        width:250px;
+                        margin: auto;
+                        position: absolute;
+                        top: 0; left: 200px; bottom: 0; right: 0;
+                }
+                #info {
+                        height:50px;
+                        width:250px;
+			font-family: 'Lato', sans-serif;
+                        font-weight: 200;
+                        color: #000000;
+                        padding-top: 80px;
+                        padding-left: 30px;
+                }
+                #other{
+                        padding-left:30px;
+                        font-family: 'Lato', sans-serif;
+                        font-weight: 200;
+                        color: #000000;
+                }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CPS 530 - LAB 8</title>
+        <!-- <link rel="stylesheet" type="text/css" href="./style.css"> -->
+        <script>
+            document.addEventListener('DOMContentLoaded', ()=>{
+                let url = "http://199.195.194.92:2199/rpc/meyima03/streaminfo.get?x=1";
+                fetch(url)
+                .then(response=>response.text())
+                .then(data=>{
+                    let parser = new DOMParser();
+                    let xml = parser.parseFromString(data, "application/xml");
+                    myFunc(xml);
+                })
+            })
+
+            function myFunc(xml) {
+                let songTitle = xml.getElementsByTagName("song")[0];
+                let songArtist = xml.getElementsByTagName("artist")[0];
+                let albumArtUrl = xml.getElementsByTagName("imageurl")[0];
+                
+                let songInfo = songTitle.childNodes[0];
+                document.getElementById("song").innerHTML = songInfo.nodeValue;
+
+                let artistInfo = songArtist.childNodes[0];
+                document.getElementById("artist").innerHTML = artistInfo.nodeValue;
+
+                let artInfo = albumArtUrl.childNodes[0];
+                document.getElementById("album").innerHTML = '<img src="'+ artInfo.nodeValue +'">';
+            }
+
+            //Refresh the body every 5 minutes
+            function autoLoad() {
+                setTimeout("window.open(self.location, '_self');", 300000);
+            }
+        </script>
+
+        <style>
+            body{
+                background-color: rgb(189, 121, 121);
+            }
+        p
+        {
+            color:rgb(119, 24, 24);
+            text-align: center;
+        }
+        img{
+            height: 400px;
+            display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+        }
+        h1,h2,h3 {
+            text-align: center;
+        }
+        </style>
+    </head>
+    <body onload="autoLoad()">
+        <h1>CPS 530 - LAB 8 - Mohamed Elbadry</h1>
+        <h2>500860249</h2>
+        <h3>XML Version</h3>
+        <p id="song"></p>
+        <p id="artist"></p>
+        <div id="album"></div>
+    </body>
+</html>

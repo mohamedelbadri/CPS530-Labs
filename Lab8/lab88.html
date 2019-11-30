@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html style="background-color:#6e7e8f; color:#111111; text-align:center;">
+<head>
+	<title> CPS530: LAB8 </title>
+
+</head>
+<body>
+
+<h2>Music (with JSON) </h2>
+<br><br>
+
+<table style="border:1; margin-left:auto; margin-right:auto;">
+  <tr bgcolor="white" >
+	<th style="text-align:center;padding: 15px 45px;">Radio Name</th>
+      	<th style="text-align:center;padding: 15px 45px;">Rank</th>
+	<th style="text-align:center;padding: 15px 45px;">Is Radionomy</th>
+	<th style="text-align:center;padding: 15px 45px;">URL</th>
+  </tr>
+  <tr>
+	<td id ="zer" style="text-align:center;padding: 15px 45px;"></td>
+	<td id ="one" style="text-align:center;padding: 15px 45px;"></td>
+	<td id ="two" style="text-align:center;padding: 15px 45px;"></td>
+	<td id ="thr" style="text-align:center;padding: 15px 45px;"></td>
+  </tr>
+</table>
+
+<br><br><br><br><br><br><br><br><br>
+
+<table style="border:1; margin-left:auto; margin-right:auto;">
+    <tr bgcolor="white" >
+      <th style="text-align:center;padding: 15px 45px;">Unique ID</th>
+      <th style="text-align:center;padding: 15px 45px;">Title</th>
+      <th style="text-align:center;padding: 15px 45px;">Artist</th>
+      <th style="text-align:center;padding: 15px 45px;">Play Duration</th>
+      <th style="text-align:center;padding: 15px 45px;">Current</th>
+      <th style="text-align:center;padding: 15px 45px;">Cover URL</th>
+    </tr>
+
+    <tr>
+      <td id ="0" style="text-align:center;padding: 15px 45px;"></td>
+      <td id ="1" style="text-align:center;padding: 15px 45px;"></td>
+      <td id ="2" style="text-align:center;padding: 15px 45px;"></td>
+      <td id ="3" style="text-align:center;padding: 15px 45px;"></td>
+      <td id ="4" style="text-align:center;padding: 15px 45px;"></td>
+      <td id ="5" style="text-align:center;padding: 15px 45px;font-size:10px;"> </td>
+    </tr>
+
+</table>
+
+
+<script>
+
+ var one = ' {"tracks": [' +
+    '{"radioname": "Yimago Radio 2"},' +
+    '{"rank": "1"},' +
+    '{"isradionomy": "1"},' +
+    '{"radurl": "http://www.radionomy.com/yimago-radio-2"} ]}';
+      
+ var two = ' {"track": [' +
+      '{"uniqueid": "3526945001"},' +
+      '{"title": "Slack Tides (2000)"},' +
+      '{"artists": "Daniel Ho"},' +
+      '{"playduration": "215073"},' +
+      '{"current": "1"},' +
+      '{"cover": "http://i3.radionomy.com/tracks/232/c95747f7-52a3-4236-926d-22c2d408b1c6?radiouid=8284da0b-1ab2-4aae-b779-3eecaf7c584e"},' +
+      '{"callmeback": "98378"} ]}';
+  
+obj = JSON.parse(one);
+document.getElementById("zer").innerHTML= obj.tracks[0].radioname;
+document.getElementById("one").innerHTML= obj.tracks[1].rank;
+document.getElementById("two").innerHTML= obj.tracks[2].isradionomy;
+document.getElementById("thr").innerHTML= obj.tracks[3].radurl;
+
+obj2 = JSON.parse(two);
+document.getElementById("0").innerHTML= obj2.track[0].uniqueid;
+document.getElementById("1").innerHTML= obj2.track[1].title;
+document.getElementById("2").innerHTML= obj2.track[2].artists;
+document.getElementById("3").innerHTML= obj2.track[3].playduration;
+document.getElementById("4").innerHTML= obj2.track[4].current;
+document.getElementById("5").innerHTML= obj2.track[5].cover;
+document.getElementById("6").innerHTML= obj2.track[6].callmeback;
+
+</script>
+
+</body>
+</html>
