@@ -1,0 +1,166 @@
+part1.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CPS 530 Lab5">
+  <meta name="author" content="Mo Elbadry">
+
+  <!-- Skeleton CSS /!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+  <!-- Custom CSS for required/!-->
+  <style media="screen">
+  input:required {
+    border:3px;
+    border-style:solid;
+    border-color:#FF0000;
+    padding: 1em;
+  }
+  </style>
+
+  <title>CPS 530 Lab 5 Part 1</title>
+</head>
+<body>
+
+
+    <div class="container">
+
+        <h2>Welcome to the Multiplication Table Form</h2>
+        <h3>by Mohamed Elbadry</h3>
+        <h3>Student Number: 500860249</h3>
+
+
+        <?php
+         session_start();
+         if(isset($_SESSION['views']))
+           $_SESSION['views']++;
+         else
+           $_SESSION['views'] = 1;
+         echo '<h4 text-align="left">'."Pageviews = ". $_SESSION['views'].'</h4>';
+         ?>
+
+      <form action="form.php" method="POST" id="form" name="form" onsubmit="return checkform()">
+        <div class="row">
+          <div class="four columns">
+            <label for="name">Your name</label>
+            <input class="u-full-width" type="text" placeholder="John Smith" id="name" name="name">
+          </div>
+          <div class="four columns">
+            <label for="number">Multiplication Table row</label>
+            <input class="u-full-width" type="text" placeholder="3" id="number" name="number" required>
+            <!-- <input class="u-full-width" type="text" placeholder="3" id="number1" name="number" required> -->
+          </div>
+          <div class="four columns">
+            <label for="number">Multiplication Table column</label>
+            <!-- <input class="u-full-width" type="text" placeholder="3" id="number" name="number" required> -->
+            <input class="u-full-width" type="text" placeholder="3" id="number1" name="number1" required>
+          </div>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+      </form>
+    </div>
+
+    <script>
+      function checkform()
+      {
+        if(( document.getElementById('number').value < 3) || (document.getElementById('number').value > 12) )
+        {
+          alert('Please choose a number between 3 and 12.');
+          return false;
+        }
+        if(( document.getElementById('number1').value < 3) || (document.getElementById('number1').value > 12) )
+        {
+          alert('Please choose a number between 3 and 12.');
+          return false;
+        }
+      }
+    </script>
+
+</body>
+</html>
+------------------------------------------------------
+form.php
+<?php
+  $name = $_POST['name'];
+  $mult = $_POST['number'];
+  $col = $_POST['number1'];
+  $output = '';
+  $output .= '<!DOCTYPE html>';
+  $output .= '<html lang="en">';
+  $output .= '<head>';
+  $output .= '<meta charset="UTF-8">';
+  $output .= '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
+  $output .= '<meta name="viewport" content="width=device-width, initial-scale=1">';
+  $output .= '<meta name="author" content="Mo Elbadry">';
+  $output .= '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">';
+  $output .= '<title>Multiplication Table</title>';
+  $output .= '</head>';
+  $output .= '<body>';
+  $output .= '<div class="container">';
+  $output .= '<h3>Hello '.$name.'</h3>';
+  $output .= '<h4>Your input was '.$mult.' x '.$col.'</h4>';
+  $output .= '<h5> Your table is below.</h5>';
+   $output .= '<table>';
+   $rows = $mult+1;
+   $cols = $col+1;
+  for ($r = 1; $r < $rows; $r++)
+  {
+    $output .='<tr>';
+    for ($c = 1; $c < $cols; $c++)
+    {
+      $output .= '<td>' .$c*$mult.'</td>';
+    }
+    $output .= '</tr>';
+  }
+  $output .= '</table>';
+  $output .= '</div>';
+  $outpt .=  '</body>';
+  $output .= '</html>';
+  echo $output;
+?>
+-----------------------------------------------------------------------------
+default.asp
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CPS 530 Lab5">
+  <meta name="author" content="Mo Elbadry">
+
+  <style>
+  body{
+  background-color: <%=Request.QueryString("Colour")%>
+  }
+  </style>
+
+  <title>CPS 530 Lab 5 Part 2</title>
+</head>
+<body>
+<h2>
+<%
+        dim lastVisit
+        Response.Cookies("Last").Expires = Date + 14
+        lastVisit = Request.Cookies("Last")
+
+        If lastVisit = "" Then
+            Response.Cookies("Last") = Now
+            Response.Write("Welcome, first-timer!")
+        Else
+            Response.Write("Your last visit was at " & lastVisit)
+        End If
+        %>
+
+
+</h2>
+</body>
+</html>
