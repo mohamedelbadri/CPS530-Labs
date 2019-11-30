@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(214, 230, 176);
+  }
+  .hat {
+    width: 30%;
+    height: 25%;
+  }
+  
+
+  .nose {
+    width: 31%;
+    height: 32%;
+  }
+
+  .mus {
+    width: 33%;
+    height: 35%;
+  }
+  .eyes {
+    width: 23%;
+    height: 23%;
+  }
+  .mouth {
+    width: 23%;
+    height: 25%;
+  }
+  
+  
+  h1 {
+    color: red;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h2 {
+    color: black;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h3 {
+    color: blue;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  p {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16;
+      text-align: center;
+  }
